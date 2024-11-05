@@ -24,6 +24,7 @@ def vaciado(request):
 
 def add(request,w_pk):
     w = Weight.objects.get(id=w_pk)
+    print('weight', w)
 
     if request.method == 'GET':
         formulariov = VaciadoForm(
