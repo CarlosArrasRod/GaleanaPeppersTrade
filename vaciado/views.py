@@ -40,7 +40,7 @@ def add(request,w_pk):
         formulariov.save()
         return redirect('vaciado:vaciado')
     
-    print (formulariov)
+    
     
     return render(request, 'vaciado/crud/crear.html', {'formulariov': formulariov, 'w':w})
 
