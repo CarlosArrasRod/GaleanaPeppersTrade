@@ -35,6 +35,7 @@ def add(request,w_pk):
         #aqui cuando se hace submit al form ya viene el papa osea 
         # weight ya viene en el post data, no es necesario instancarlo por que no hay 
         #instancia de vaciado con el numero del papa. 
+        print('req',request.POST)
         formulariov = VaciadoForm(data = request.POST)
     print('ERROR', formulariov.errors)
     if formulariov.is_valid():
