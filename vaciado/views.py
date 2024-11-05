@@ -35,7 +35,7 @@ def add(request,w_pk):
         # weight ya viene en el post data, no es necesario instancarlo por que no hay 
         #instancia de vaciado con el numero del papa. 
         formulariov = VaciadoForm(data = request.POST)
-    print('ERROR', formulariov.errors())
+    print('ERROR', formulariov.errors)
     if formulariov.is_valid():
         formulariov.save()
         return redirect('vaciado:vaciado')
