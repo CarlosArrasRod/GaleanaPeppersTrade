@@ -105,10 +105,10 @@ WSGI_APPLICATION = 'gpt.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'gpt',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
+        'NAME': 'GaleanaPepper$default',
+        'USER': 'GaleanaPepper',
+        'PASSWORD': '350Zmomi',
+        'HOST': 'GaleanaPepper.mysql.pythonanywhere-services.com',
         'PORT': '3306',
     }
 }
