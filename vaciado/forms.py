@@ -7,5 +7,5 @@ class VaciadoForm(forms.ModelForm):
         model = Vaciado
         fields = '__all__'
         widgets ={
-            #'weight':forms.HiddenInput(),
+            'weight':forms.HiddenInput(),
         }
