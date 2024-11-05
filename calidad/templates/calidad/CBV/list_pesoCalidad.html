@@ -1,0 +1,47 @@
+{% extends 'calidadt.html' %}
+
+
+{% block title %} Bascula {% endblock %}
+
+{% block content %} 
+
+
+
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Pesos con Calidad</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <div>
+                            
+                        </div>
+                        <tr>
+                            <th>Folio</th>
+                            <th>Causas</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for peso in pesos %}
+                        <tr>
+                            <td>{{peso}}</td>
+                            <td>
+                                {% for calidad in peso.calidades.all %}
+                                <li><a href="{% url 'calidad:CBV_Calidad_detailView' calidad.pk %}">{{ calidad.causa }}</li> </a> 
+                            {% empty %}
+                                <li>No hay calidades para este peso.</li>
+                            {% endfor %}
+                            </td>
+                            
+                        </tr>
+                            
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+
+{% endblock %}

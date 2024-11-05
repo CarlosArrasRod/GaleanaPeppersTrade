@@ -1,0 +1,102 @@
+{% extends 'calidadt.html' %}
+{% load widget_tweaks %}
+
+{% block title %} Calidad {% endblock %}
+
+{% block content %} 
+
+
+
+    <div class="card">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover text-center">
+                <thead class="thead-light">
+                    <thead>
+                        <div>
+                            
+                        </div>
+                        <tr>
+                            <th>Folio</th>
+                            <th>Fecha</th>
+                            <th>Causa de Retrabajo</th>
+                            <th>Tanque 1</th>
+                            <th>Tanque 2</th>
+                            <th>Hora comienzo</th>
+                            <th>Hora fin</th>
+                            <th>Tiempo total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        {% for calidad in calidades %}
+                            <tr class="">
+                                <td>{{ calidad.folio}}</td>
+                                <td>{{ calidad.fecha}}</td>
+
+                                    <td>{% for vac in calidad.calidades.all %}
+                                    
+                                        {{ vac.causa }}
+                                    {% empty %}
+                                        
+                                    {% endfor %}
+                                    </td>
+
+                                    <td>{% for vac in calidad.calidades.all %}
+                                    
+                                        {{ vac.tanque }}
+                                    {% empty %}
+                                        
+                                    {% endfor %}
+                                    </td>
+
+                                    <td>{% for vac in calidad.calidades.all %}
+                                    
+                                        {{ vac.tanque2 }}
+                                    {% empty %}
+                                        
+                                    {% endfor %}
+                                    </td>
+
+                                    <td>{% for vac in calidad.calidades.all %}
+                                    
+                                        {{ vac.hdecomiezo }}
+                                    {% empty %}
+                                        
+                                    {% endfor %}
+                                    </td>
+
+                                    <td>{% for vac in calidad.calidades.all %}
+                                    
+                                        {{ vac.hdef }}
+                                    {% empty %}
+                                        
+                                    {% endfor %}
+                                    </td>
+
+                                    <td>{% for vac in calidad.calidades.all %}
+                                    
+                                        {{ vac.ttotal }}
+                                    {% empty %}
+                                        
+                                    {% endfor %}
+                                    </td>
+
+                                    <!-- Sub Row 1 -->
+                                    <td>
+                                        <td><a class="btn btn-primary" href="{% url 'calidad:CBV_crear' %}?folio={{calidad.folio}} " role="button">Agregar Calidad CBV</a></td>
+                                        
+                                    </td>
+                                    <td>
+                                </td>                                                
+                            </tr>
+                            
+                        {% endfor %}
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+
+{% endblock %}

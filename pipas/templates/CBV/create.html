@@ -1,0 +1,14 @@
+{% extends "pipas.html" %}
+
+{% block title %}
+    Agregar nuevo registro pipas
+{% endblock  %}
+
+
+{% block content %} 
+    <form action="." method="post">
+        {% csrf_token %}
+        {{ form}}
+        <button type="submit">Agregar</button>
+    </form>
+{% endblock %}

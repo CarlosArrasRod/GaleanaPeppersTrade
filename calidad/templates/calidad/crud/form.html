@@ -1,0 +1,75 @@
+{% load widget_tweaks%}
+<form class="row g-3" enctype="multipart/form" method="POST">
+
+    {% csrf_token %}
+
+    <div class="form-group col-md-2">
+        <label for="id_weight"> </label>
+        {{ form.weight|add_class:"form-control"|attr:"readonly" }}
+
+    </div>
+    <div class="form-group col-md-11">
+        <label for="id_vaciado">Causa</label>
+        {{ form.causa|add_class:"form-control" }}
+    </div>
+
+    <div class="form-group col-md-2">
+        <label for="id_tanque">Tanque</label>
+        {{ form.tanque | add_class:"form-control" }}
+            
+    </div>
+
+    <div class="form-group col-md-2">
+        <label for="id_tanque2">Tanque2</label>
+        {{ form.tanque2 | add_class:"form-control" }}
+            
+    </div>
+
+    <div class="form-group col-md-3">
+        <label for="id_hdecomienzo">Hora de Comienzo</label>
+        {{ form.hdecomiezo | add_class:"form-control" }}
+            
+    </div>
+
+    <div class="form-group col-md-3">
+        <label for="id_hdef">Hora de finalizacion</label>
+        {{ form.hdef | add_class:"form-control" }}
+            
+    </div>
+
+    <div class="form-group col-md-3">
+        <label for="id_ttotal">Tiempo Total</label>
+        {{ form.ttotal | add_class:"form-control" }}
+            
+    </div>
+
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit">Guardar</button>
+    </div>
+
+
+
+    {%comment%}
+    <div class="col-md-2">
+        <label for="validationDefault11" class="form-label">Tanque 1</label>
+        {% render_field formularioc.tanque class="form-select" type="text" %}
+    </div>
+    <div class="col-md-3">
+        <label for="validationDefault13" class="form-label">Tanque 2</label>
+        {% render_field formularioc.tanque2 class="form-select" type="text" %}
+    </div>
+    <div class="col-md-3">
+        <label for="validationDefault13" class="form-label">Hora Comienzo</label>
+        {% render_field formularioc.hdecomiezo class="form-select" type="time" %}
+    </div>
+    <div class="col-md-3">
+        <label for="validationDefault13" class="form-label">Hora de fin</label>
+        {% render_field formularioc.hdef class="form-select" type="time" %}
+    </div>
+    <div class="col-md-2">
+        <label for="validationDefault13" class="form-label">Tiempo Total</label>
+        {% render_field formularioc.tanque2 class="form-select" type="text" %}
+    </div>
+    {% endcomment %}
+
+</form>

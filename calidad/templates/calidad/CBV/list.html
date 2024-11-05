@@ -1,0 +1,71 @@
+{% extends 'calidadt.html' %}
+{% load widget_tweaks %}
+
+{% block title %} Bascula {% endblock %}
+
+{% block content %} 
+
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Calidad</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <div>
+                            
+                        </div>
+                        <tr>
+                            <th>Folio</th>
+                            <th>Fecha</th>
+                            <th>Causa de Retrabajo</th>
+                            <th>Tanque 1</th>
+                            <th>Tanque 2</th>
+                            <th>Hora comienzo</th>
+                            <th>Hora fin</th>
+                            <th>Tiempo total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% comment%}
+                        {% for calidad in calidades %}
+                            <tr class="">
+                                <td>{{ calidad.id}}</td>
+                                <td>{{ calidad.causa}}</td>
+                                <td>{{calidad.tanque}}</td>
+                                <td>{{calidad.weight}}</td>
+                                    <td>{% for vac in calidad.calidades.all %}
+                                    
+                                        {{ vac.causa }}
+                                    {% empty %}
+                                        no hay vaciados para este weight
+                                    {% endfor %}
+                                    </td>
+                                    <!-- Sub Row 1 -->
+                                    <td>
+                                        <a name="" id="" class="btn btn-primary" href="{% url 'calidad:add' calidad.pk %}" role="button">Agregar Calidad</a>
+                                        
+                                    </td>
+                                    <td>
+                                </td>                                                
+                            </tr>
+                            
+                        {% endfor %}
+                        {% endcomment %}
+
+
+                        {% for peso in pesos %}
+                        <tr>
+                            <td>{{peso.folio}}</td>
+                            <td>{{peso.tproducto}}</td>
+                            <td><a href="{% url 'calidad:CBV_crear' %}?folio={{peso.folio}}">Agregar Calidad CBV</a></td>
+                        </tr>
+                            
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+
+{% endblock %}

@@ -1,0 +1,112 @@
+{% extends 'gerencia_base.html' %}
+{% load widget_tweaks %}
+
+{% block title %} Grencia Vaciado {% endblock %}
+
+{% block content %} 
+
+    <div class="card">
+        <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+            <div><h4 class="card-title">Vaciado</h4></div>
+            <div>
+                <form method="GET" action="" class="row g-2" style="display: flex; gap: 10px;">
+                    <div class="col-auto">
+                        <input class="form-control" type="text" name="search" placeholder="Buscar por Folio">
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Folio</th>
+                            <th>Fecha</th>
+                            <th>ID</th>
+                            <th>Nombre Chofer</th>
+                            <th>Hora de Comienzo de Vaciado</th>
+                            <th>Hora de Finalización de Vaciado</th>
+                            <th>Hora de Comienzo de Banda</th>
+                            <th>Hora de Finalización de Banda</th>
+                            <th>Tiempo de Vaciado</th>
+                            <th>Tiempo de Banda</th>
+                            <th>Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for vaciado in vaciados %}
+                            <tr>
+                                <td>{{ vaciado.folio }}</td>
+                                <td>{{ vaciado.fecha }}</td>
+                                <td>{{ vaciado.proveedor }}</td>
+                                <td>{{ vaciado.nombrechof }}</td>
+    
+                                <td>{% for vac in vaciado.vaciados.all %}
+                                    {{ vac.hdecomiezov }}
+                                    {% empty %}
+                                    N/A
+                                    {% endfor %}
+                                </td>
+    
+                                <td>{% for vac in vaciado.vaciados.all %}
+                                    {{ vac.hdefinalizacionv }}
+                                    {% empty %}
+                                    N/A
+                                    {% endfor %}
+                                </td>
+    
+                                <td>{% for vac in vaciado.vaciados.all %}
+                                    {{ vac.hdecomiezobanda }}
+                                    {% empty %}
+                                    N/A
+                                    {% endfor %}
+                                </td>
+    
+                                <td>{% for vac in vaciado.vaciados.all %}
+                                    {{ vac.hdefinalizacionbanda }}
+                                    {% empty %}
+                                    N/A
+                                    {% endfor %}
+                                </td>
+    
+                                <td>{% for vac in vaciado.vaciados.all %}
+                                    {{ vac.tiempovaciado }}
+                                    {% empty %}
+                                    N/A
+                                    {% endfor %}
+                                </td>
+    
+                                <td>{% for vac in vaciado.vaciados.all %}
+                                    {{ vac.tiempodebanda }}
+                                    {% empty %}
+                                    N/A
+                                    {% endfor %}
+                                </td>
+    
+                                <!-- Botón de acción para agregar vaciado -->
+
+                                <td>
+                                    <a
+                                        name=""
+                                        id=""
+                                        class="btn btn-primary"
+                                        href="{% url 'vaciado:update' vaciado.id %}"
+                                        role="button"
+                                        >Editar</a
+                                    >
+                                    
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+
+{% endblock %}

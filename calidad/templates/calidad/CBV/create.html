@@ -1,0 +1,14 @@
+{% extends "calidadt.html" %}
+
+{% block title %}
+    Agregar nuevo registro
+{% endblock  %}
+
+
+{% block content %} 
+    <form action="." method="post">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <button type="submit">Agregar</button>
+    </form>
+{% endblock %}

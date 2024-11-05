@@ -1,0 +1,65 @@
+{% load widget_tweaks %}
+<form class="row g-3" enctype="multipart/form-data" method="POST">
+    
+    {% csrf_token %}
+
+
+        {% render_field formulariov.id  %}
+    
+        <div class="col-md-2">
+            <label for="validationDefault01" class="form-label" >Folio </label>
+            
+            <input type="text" value="{{w.folio}}" class="form-control" disabled >
+            
+        
+        </div>
+        <div class="col-md-2">
+            <label for="validationDefault02" class="form-label" >Fecha </label>
+            
+            <input type="text" value="{{w.fecha}}" class="form-control" disabled >
+            
+
+        
+        </div>
+        <div class="col-md-2">
+            <label for="validationDefault05" class="form-label">Id Nombre </label>
+
+            <input type="text" value="{{w.proveedor}}" class="form-control" disabled >
+            
+            
+        </div>
+        <div class="col-md-2">
+            <label for="validationDefault05" class="form-label">Nombre chofer</label>
+
+            <input type="text" value="{{w.nombrechof}}" class="form-control" disabled >
+        </div>
+            <div class="col-md-2">
+            <label for="validationDefault11" class="form-label">Hora de Comienzo de vaciado</label>
+            {% render_field formulariov.hdecomiezov class+="form-control" type="time" %}
+        </div>
+        <div class="col-md-3">
+            <label for="validationDefault12" class="form-label">Hora de finalizacion de vaciado</label>
+            {% render_field formulariov.hdefinalizacionv class+="form-control" type="time" %}
+        </div>
+        <div class="col-md-2">
+            <label for="validationDefault12" class="form-label">Hora de Comienzo de banda</label>
+            {% render_field formulariov.hdecomiezobanda class+="form-control" type="time" %}
+        </div>
+        <div class="col-md-2">
+            <label for="validationDefault12" class="form-label">Hora de finalizacion de banda</label>
+            {% render_field formulariov.hdefinalizacionbanda class+="form-control" type="time" %}
+        </div>
+        <div class="col-md-2">
+            <label for="validationDefault12" class="form-label">Tiempo de Vaciado</label>
+            {% render_field formulariov.tiempovaciado class+="form-control" type="time" %}
+        </div>
+        <div class="col-md-2">
+            <label for="validationDefault12" class="form-label">Tiempo de banda</label>
+            {% render_field formulariov.tiempodebanda class+="form-control" type="time" %}
+        </div>
+        <div class="col-12">
+            <button class="btn btn-danger" type="submit">Guardar</button>
+        </div>
+
+
+</form>

@@ -1,0 +1,71 @@
+{% load widget_tweaks %}
+<form class="row g-3" enctype="multipart/form-data" method="post">
+    
+    {% csrf_token %}
+
+        
+
+        {% render_field formulario.id  %}
+    
+        <div class="col-md-2">
+            <label for="id_folio" class="form-label">Folio</label>
+            {% render_field formulario.folio class+="form-control " required=true placeholder="Folio" %}
+        </div>
+        <div class="col-md-3">
+            <label for="id_tproducto" class="form-label">Tipo de producto</label>
+            {% render_field formulario.tproducto class+="form-select" %}
+        </div>
+        <div class="col-md-2">
+        <label for="id_fecha" class="form-label">Fecha</label>
+        {% render_field formulario.fecha class+="form-control" type="date" %}
+        </div>
+        <div class="col-md-2">
+            <label for="validationDefault03" class="form-label">Productor</label>
+            {% render_field formulario.prodoembarc class+="form-control " required=true placeholder="Productor o embarque" %}
+        </div>
+        <div class="col-md-5">
+            <label for="validationDefault05" class="form-label">Id Nombre</label>
+            {% render_field formulario.proveedor class+="form-control " required=true placeholder="Nombre" %}
+        </div>
+        <div class="col-md-5">
+            <label for="validationDefault06" class="form-label">Nombre Chofer</label>
+            {% render_field formulario.nombrechof class+="form-control " required=true placeholder="Nombre del Chofer" %}
+        </div>
+        <div class="col-md-3">
+            <label for="validationDefault07" class="form-label">Peso neto</label>
+            {% render_field formulario.pesoton class+="form-control" type="number" min="0.00" step="0.01" %}
+        </div>
+        <div class="col-md-2">
+            <label for="validationDefault08" class="form-label">Unidad</label>
+            
+        </div>
+        <div class="col-md-2">
+            <label for="validationDefault11" class="form-label">Hora de llegada</label>
+            {% render_field formulario.horallegada class+="form-control" type="time" %}
+        </div>
+        <div class="col-md-3">
+            <label for="validationDefault12" class="form-label">Hora de apertura de la puerta</label>
+            {% render_field formulario.horaapertura class+="form-control" type="time" %}
+        </div>
+        <div class="col-md-3">
+            <label for="validationDefault12" class="form-label">Hora de carga/descarga</label>
+            {% render_field formulario.horacarga class+="form-control" type="time" %}
+        </div>
+        <div class="col-md-2">
+            <label for="validationDefault12" class="form-label">Hora de salida</label>
+            {% render_field formulario.horasalida class+="form-control" type="time" %}
+        </div>
+        <div class="col-md-2">
+            <label for="validationDefault12" class="form-label">Tiempo en fila</label>
+            {% render_field formulario.tiempoenfila class+="form-control " required=true placeholder="Tiempo" %}
+        </div>
+        <div class="col-12 help-text">{{campo.errors}}</div>
+        
+            <div class="col-12">
+                <button class="btn btn-success" type="submit">Guardar</button>
+            </div>
+
+        
+
+
+</form>

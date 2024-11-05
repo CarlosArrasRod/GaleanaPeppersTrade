@@ -1,0 +1,78 @@
+{% extends 'gerencia_base.html' %}
+{% load widget_tweaks %}
+
+{% block title %} Gerencia Bascula {% endblock %}
+
+{% block content %} 
+
+    <div class="card">
+        <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+            <div><h4 class="card-title">Bascula</h4></div>
+            <div>
+                <form method="GET" action="" class="row g-2" style="display: flex; gap: 10px;">
+                    <div class="col-auto">
+                        <input class="form-control" type="text" name="search" placeholder="Buscar por Folio">
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="card-body">
+            
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Folio</th>
+                            <th>Tipo de Producto</th>
+                            <th>Fecha</th>
+                            <th>Productor</th>
+                            <th>ID</th>
+                            <th>Nombre del Chofer</th>
+                            <th>Peso Kg</th>
+                            <th>Peso libras</th>
+                            <th>Hora de llegada</th>
+                            <th>Hora de apertura de puerta</th>
+                            <th>Hora de Carga/Descarga</th>
+                            <th>Hora de salida</th>
+                            <th>Tiempo en fila</th>
+                            <th>Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for weight in weight %}
+                            <tr>
+                                <td>{{ weight.folio }}</td>
+                                <td>{{ weight.tproducto }}</td>
+                                <td>{{ weight.fecha }}</td>
+                                <td>{{ weight.prodoembarc }}</td>
+                                <td>{{ weight.proveedor }}</td>
+                                <td>{{ weight.nombrechof }}</td>
+                                <td>{{ weight.pesoton }}</td>
+                                <td>{{ weight.pesolib }}</td>
+                                <td>{{ weight.horallegada }}</td>
+                                <td>{{ weight.horaapertura }}</td>
+                                <td>{{ weight.horacarga }}</td>
+                                <td>{{ weight.horasalida }}</td>
+                                <td>{{ weight.tiempoenfila }}</td>
+                                <td><a
+                                    name=""
+                                    id=""
+                                    class="btn btn-primary"
+                                    href="{% url 'weight:update' weight.id %}"
+                                    role="button"
+                                    >Editar</a
+                                >
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+
+{% endblock %}

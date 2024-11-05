@@ -1,0 +1,179 @@
+{% extends 'gerencia_base.html' %}
+{% load widget_tweaks %}
+
+{% block title %} Pipas {% endblock %}
+
+{% block content %} 
+
+<div class="card">
+    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+        <div><h4 class="card-title">Pipa</h4></div>
+        <div>
+            <form method="GET" action="" class="row g-2" style="display: flex; gap: 10px;">
+                <div class="col-auto">
+                    <input class="form-control" type="text" name="search" placeholder="Buscar por cualquier campo">
+                </div>
+                <div class="col-auto">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover text-center">
+                <thead class="thead-light">
+                    <div>
+                        
+                    </div>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Folio</th>
+                        <th>ID</th>
+                        <th>BOL</th>
+                        <th>Sello Entrada Tapa superior</th>
+                        <th>Sello Entrada toma descarga</th>
+                        <th>Sello Salida Tapa superior2</th>
+                        <th>Sello Salida toma descarga2</th>
+                        <th>Sello Sello repuesto</th>
+                        <th>Bomba de carga</th>
+                        <th>Tanque1</th>
+                        <th>Tanque2</th>
+                        <th>Lt cargados</th>
+                        <th>Lb cargadoas</th>
+                        <th>Hora de comienzo de carga</th>
+                        <th>Hora de finalizacion de carga</th>
+                        <th>Tiempo de carga</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    {% for pipas in pipa %}
+                        <tr class="">
+                            <td>{{ pipas.folio}}</td>
+                            <td>{{ pipas.fecha}}</td>
+                            <td>{{ pipas.proveedor}}</td>
+
+                                <td>{% for pip in pipas.pipa.all %}
+                                
+                                    {{ pip.bol }}
+                                {% empty %}
+                                    
+                                {% endfor %}
+                                </td>
+
+                                <td>{% for pip in pipas.pipa.all %}
+                                
+                                    {{ pip.selloasup }}
+                                {% empty %}
+                                    
+                                {% endfor %}
+                    
+                                </td>
+
+                                <td>{% for pip in pipas.pipa.all %}
+                                
+                                    {{ pip.sellodesc }}
+                                {% empty %}
+                                    
+                                {% endfor %}
+
+                                </td>  
+                        
+                                <td>{% for pip in pipas.pipa.all %}
+                                    
+                                    {{ pip.selloasup2 }}
+                                {% empty %}
+                                    
+                                {% endfor %}
+                    
+                                </td>
+
+                                <td>{% for pip in pipas.pipa.all %}
+                                
+                                    {{ pip.sellodesc2 }}
+                                {% empty %}
+                                    
+                                {% endfor %}
+                                </td> 
+
+                                <td>{% for pip in pipas.pipa.all %}
+                                
+                                    {{ pip.sellorep }}
+                                {% empty %}
+                                    
+                                {% endfor %}
+                                </td> 
+
+                                <td>{% for pip in pipas.pipa.all %}
+                                
+                                    {{ pip.bombac }}
+                                {% empty %}
+                                    
+                                {% endfor %}
+                                </td> 
+
+                                <td>{% for pip in pipas.pipa.all %}
+                                
+                                    {{ pip.tanque1 }}
+                                {% empty %}
+                                    
+                                {% endfor %}
+                                </td> 
+
+                                <td>{% for pip in pipas.pipa.all %}
+                                
+                                    {{ pip.tanque2 }}
+                                {% empty %}
+                                    
+                                {% endfor %}
+                                </td> 
+
+                                <td>
+                                    
+                                    {{ pipas.pesoton }}
+                                </td>
+
+                                <td>
+                                    
+                                    {{ pipas.pesolib }}
+                                </td>
+
+                                <td>{% for pip in pipas.pipa.all %}
+                                
+                                    {{ pip.horacarga }}
+                                {% empty %}
+                                    
+                                {% endfor %}
+                                </td> 
+
+                                <td>{% for pip in pipas.pipa.all %}
+                                
+                                    {{ pip.horafcarga }}
+                                {% empty %}
+                                
+                                {% endfor %}
+                                </td> 
+
+                                <td>{% for pip in pipas.pipa.all %}
+                                
+                                    {{ pip.tiempocarga }}
+                                {% empty %}
+                            
+                                {% endfor %}
+                                </td> 
+
+                        
+                        </tr>
+                        
+                    {% endfor %}
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends 'vaciado.html' %}
+{% load widget_tweaks %}
+
+{% block title %} Bascula {% endblock %}
+
+{% block content %} 
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">VACIADO</h4>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Folio</th>
+                        <th>Fecha</th>
+                        <th>ID</th>
+                        <th>Nombre Chofer</th>
+                        <th>Hora de Comienzo de Vaciado</th>
+                        <th>Hora de Finalización de Vaciado</th>
+                        <th>Hora de Comienzo de Banda</th>
+                        <th>Hora de Finalización de Banda</th>
+                        <th>Tiempo de Vaciado</th>
+                        <th>Tiempo de Banda</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for vaciado in vaciados %}
+                        <tr>
+                            <td>{{ vaciado.folio }}</td>
+                            <td>{{ vaciado.fecha }}</td>
+                            <td>{{ vaciado.proveedor }}</td>
+                            <td>{{ vaciado.nombrechof }}</td>
+
+                            <td>{% for vac in vaciado.vaciados.all %}
+                                {{ vac.hdecomiezov }}
+                                {% empty %}
+                                N/A
+                                {% endfor %}
+                            </td>
+
+                            <td>{% for vac in vaciado.vaciados.all %}
+                                {{ vac.hdefinalizacionv }}
+                                {% empty %}
+                                N/A
+                                {% endfor %}
+                            </td>
+
+                            <td>{% for vac in vaciado.vaciados.all %}
+                                {{ vac.hdecomiezobanda }}
+                                {% empty %}
+                                N/A
+                                {% endfor %}
+                            </td>
+
+                            <td>{% for vac in vaciado.vaciados.all %}
+                                {{ vac.hdefinalizacionbanda }}
+                                {% empty %}
+                                N/A
+                                {% endfor %}
+                            </td>
+
+                            <td>{% for vac in vaciado.vaciados.all %}
+                                {{ vac.tiempovaciado }}
+                                {% empty %}
+                                N/A
+                                {% endfor %}
+                            </td>
+
+                            <td>{% for vac in vaciado.vaciados.all %}
+                                {{ vac.tiempodebanda }}
+                                {% empty %}
+                                N/A
+                                {% endfor %}
+                            </td>
+
+                            <!-- Botón de acción para agregar vaciado -->
+                            <td>
+                                <a class="btn btn-primary btn-sm" href="{% url 'vaciado:add' vaciado.pk %}" role="button">Agregar Vaciado</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+    
+
+{% endblock %}

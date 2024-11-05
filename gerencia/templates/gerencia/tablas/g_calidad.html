@@ -1,0 +1,109 @@
+{% extends 'gerencia_base.html' %}
+{% load widget_tweaks %}
+
+{% block title %} Calidad {% endblock %}
+
+{% block content %} 
+
+
+
+    <div class="card">
+        <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+            <div><h4 class="card-title">Calidad</h4></div>
+            <div>
+                <form method="GET" action="" class="row g-2" style="display: flex; gap: 10px;">
+                    <div class="col-auto">
+                        <input class="form-control" type="text" name="search" placeholder="Buscar por folio">
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover text-center">
+                    <thead class="thead-light">
+                        <div>
+                            
+                        </div>
+                        <tr>
+                            <th>Folio</th>
+                            <th>Fecha</th>
+                            <th>Causa de Retrabajo</th>
+                            <th>Tanque 1</th>
+                            <th>Tanque 2</th>
+                            <th>Hora comienzo</th>
+                            <th>Hora fin</th>
+                            <th>Tiempo total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        {% for calidad in calidades %}
+                            <tr class="">
+                                <td>{{ calidad.folio}}</td>
+                                <td>{{ calidad.fecha}}</td>
+
+                                    <td>{% for vac in calidad.calidades.all %}
+                                    
+                                        {{ vac.causa }}
+                                    {% empty %}
+                                        
+                                    {% endfor %}
+                                    </td>
+
+                                    <td>{% for vac in calidad.calidades.all %}
+                                    
+                                        {{ vac.tanque }}
+                                    {% empty %}
+                                        
+                                    {% endfor %}
+                                    </td>
+
+                                    <td>{% for vac in calidad.calidades.all %}
+                                    
+                                        {{ vac.tanque2 }}
+                                    {% empty %}
+                                        
+                                    {% endfor %}
+                                    </td>
+
+                                    <td>{% for vac in calidad.calidades.all %}
+                                    
+                                        {{ vac.hdecomiezo }}
+                                    {% empty %}
+                                        
+                                    {% endfor %}
+                                    </td>
+
+                                    <td>{% for vac in calidad.calidades.all %}
+                                    
+                                        {{ vac.hdef }}
+                                    {% empty %}
+                                        
+                                    {% endfor %}
+                                    </td>
+
+                                    <td>{% for vac in calidad.calidades.all %}
+                                    
+                                        {{ vac.ttotal }}
+                                    {% empty %}
+                                        
+                                    {% endfor %}
+                                
+                                </td>                                                
+                            </tr>
+                            
+                        {% endfor %}
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+
+{% endblock %}

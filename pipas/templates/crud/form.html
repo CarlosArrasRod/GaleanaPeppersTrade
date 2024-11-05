@@ -1,0 +1,78 @@
+{% load widget_tweaks %}
+<form class="row g-3" enctype="multipart/form-data" method="POST">
+    
+    {% csrf_token %}
+
+        <div class="form-group col-md-3">
+            <label for="id_weight"> </label>
+            {{ form.weight|add_class:"form-control"|attr:"readonly" }}
+        </div>
+
+        <div class="form-group col-md-10">
+            <div class="form-group col-md-4">
+                <label for="id_bol"> Bol </label>
+                {{ form.bol|add_class:"form-control" }}
+            </div>
+        </div>
+            <div class="form-group col-md-6">
+                <h1>Sellos de entrada</h1>
+                <div class="form-group col-md-9">
+                    <label for="id_selloasup"> Sello superior </label>
+                    {{ form.selloasup|add_class:"form-control" }}
+                </div>
+                <div class="form-group col-md-9">
+                    <label for="id_sellodesc"> Sello descarga </label>
+                    {{ form.sellodesc|add_class:"form-control" }}
+                </div>
+            </div>
+            <div class="form-group col-md-5">
+                <h1>Sellos de salida</h1>
+                <div class="col-md-12">
+                    <div class="form-group col-md-12">
+                        <label for="id_selloasup2"> Sello superior </label>
+                        {{ form.selloasup2|add_class:"form-control" }}
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="id_sellodesc2"> Sello descarga </label>
+                        {{ form.sellodesc2|add_class:"form-control" }}
+                    </div>
+                </div>    
+            </div>
+            <div class="form-group col-md-3">
+                <label for="id_sellodesc2"> Sello de repuesto </label>
+                {{ form.sellorep|add_class:"form-control" }}
+            </div>
+            <div class="form-group col-md-5">
+                <label for="id_sellodesc2"> Bomba de Carga </label>
+                {{ form.bombac|add_class:"form-control" }}
+            </div>
+            <div class="form-group col-md-12">
+                <h1>Tanques de extracción</h1>
+                <div class="form-group col-md-6">
+                    <label for="id_tanque1"> Tanque 1 </label>
+                    {{ form.tanque1|add_class:"form-control" }}
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="id_tanque2"> Tanque 2 </label>
+                    {{ form.tanque2|add_class:"form-control" }}
+                </div>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="id_horacarga"> Hora Comienzo carga  </label>
+                {{ form.horacarga|add_class:"form-control" }}
+            </div>
+            <div class="form-group col-md-2">
+                <label for="id_horafcarga"> Hora finalizacion carga </label>
+                {{ form.horafcarga|add_class:"form-control" }}
+            </div>
+            <div class="form-group col-md-2">
+                <label for="id_tiempocarga"> Tiempo de carga </label>
+                {{ form.tiempocarga|add_class:"form-control" }}
+            </div>
+            <div class="col-12">
+                <button class="btn btn-danger" type="submit">Guardar</button>
+            </div>
+            
+
+
+</form>

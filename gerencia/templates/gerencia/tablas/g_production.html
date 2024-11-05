@@ -1,0 +1,157 @@
+{% extends 'gerencia_base.html' %}
+{% load widget_tweaks %}
+
+{% block title %} Gerencia Produccion {% endblock %}
+
+{% block content %} 
+
+    <div class="card">
+        <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+            <div><h4 class="card-title">Producción</h4></div>
+            <div>
+                <form method="GET" action="" class="row g-2" style="display: flex; gap: 10px;">
+                    <div class="col-auto">
+                        <input class="form-control" type="text" name="search" placeholder="Buscar por cualquier campo">
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Folio</th>
+                                <th>Fecha</th>
+                                <th>ID</th>
+                                <th>Tipo de Chile</th>
+                                <th>% de Sal</th>
+                                <th>Total de Pasta Esperado en Kg</th>
+                                <th>Lote Sal 1</th>
+                                <th>Lote Sal 2</th>
+                                <th>Lote Sal 3</th>
+                                <th>Kg de Sal</th>
+                                <th>Tanque 1</th>
+                                <th>Tanque 2</th>
+                                <th>Tanque 3</th>
+                                <th>Lt Depositados Tanque 1</th>
+                                <th>Lt Depositados Tanque 2</th>
+                                <th>Lt Depositados Tanque 3</th>
+                                <th>Lt de Pasta Producida</th>
+                                <th>Kg de Pasta Producida</th>
+                                <th>Kg Desperdiciados con Esta Carga</th>
+                                <th> Opciones </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for production in productions %}
+                                <tr>
+                                    <td>{{ production.folio }}</td>
+                                    <td>{{ production.fecha }}</td>
+                                    <td>{{ production.proveedor }}</td>
+                                    <td>{{ production.tproducto }}</td>
+        
+                                    <td>{% for prod in production.productions.all %}
+                                        {{ prod.pdesal }}
+                                        {% empty %} N/A {% endfor %}
+                                    </td>
+        
+                                    <td>{% for prod in production.productions.all %}
+                                        {{ prod.totalpasta }}
+                                        {% empty %} N/A {% endfor %}
+                                    </td>
+        
+                                    <td>{% for prod in production.productions.all %}
+                                        {{ prod.lotsal }}
+                                        {% empty %} N/A {% endfor %}
+                                    </td>
+        
+                                    <td>{% for prod in production.productions.all %}
+                                        {{ prod.lotsal2 }}
+                                        {% empty %} N/A {% endfor %}
+                                    </td>
+        
+                                    <td>{% for prod in production.productions.all %}
+                                        {{ prod.lotsal3 }}
+                                        {% empty %} N/A {% endfor %}
+                                    </td>
+        
+                                    <td>{% for prod in production.productions.all %}
+                                        {{ prod.kgdesal }}
+                                        {% empty %} N/A {% endfor %}
+                                    </td>
+        
+                                    <td>{% for prod in production.productions.all %}
+                                        {{ prod.tanque1 }}
+                                        {% empty %} N/A {% endfor %}
+                                    </td>
+        
+                                    <td>{% for prod in production.productions.all %}
+                                        {{ prod.tanque2 }}
+                                        {% empty %} N/A {% endfor %}
+                                    </td>
+        
+                                    <td>{% for prod in production.productions.all %}
+                                        {{ prod.tanque3 }}
+                                        {% empty %} N/A {% endfor %}
+                                    </td>
+        
+                                    <td>{% for prod in production.productions.all %}
+                                        {{ prod.lttanque1 }}
+                                        {% empty %} N/A {% endfor %}
+                                    </td>
+        
+                                    <td>{% for prod in production.productions.all %}
+                                        {{ prod.lttanque2 }}
+                                        {% empty %} N/A {% endfor %}
+                                    </td>
+        
+                                    <td>{% for prod in production.productions.all %}
+                                        {{ prod.lttanque3 }}
+                                        {% empty %} N/A {% endfor %}
+                                    </td>
+        
+                                    <td>{% for prod in production.productions.all %}
+                                        {{ prod.ltpasta }}
+                                        {% empty %} N/A {% endfor %}
+                                    </td>
+        
+                                    <td>{% for prod in production.productions.all %}
+                                        {{ prod.kgpasta }}
+                                        {% empty %} N/A {% endfor %}
+                                    </td>
+        
+                                    <td>{% for prod in production.productions.all %}
+                                        {{ prod.kgdesperdiciados }}
+                                        {% empty %} N/A {% endfor %}
+                                    </td>
+
+                                    <td>
+                                        <a
+                                            name=""
+                                            id=""
+                                            class="btn btn-primary"
+                                            href="{% url 'production:update' production.id %}"
+                                            role="button"
+                                            >Editar</a
+                                        >
+                                        
+                                    </td>
+        
+                                    <!-- Botón de acción para agregar vaciado -->
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+
+{% endblock %}

@@ -1,0 +1,75 @@
+{% load widget_tweaks%}
+<form class="row g-3" enctype="multipart/form" method="POST">
+
+    {% csrf_token %}
+
+
+        <div class="form-group col-md-12">
+            <label for="id_weight"> </label>
+            {{ form.weight|add_class:"form-control"|attr:"readonly" }}
+        </div>
+        <div class="form-group col-md-12">
+            <div class="form-group col-md-3">
+                <label for="id_pdesal"> % de sal</label>
+                {{ form.pdesal |add_class:"form-control" }}
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="id_pdehumedad"> Kilogramos de sal</label>
+                {{ form.kgdesal |add_class:"form-control" }}
+            </div>
+        </div>
+        
+    <div class="form-group col-4">
+        <h1>Lotes de sal utilizados</h1>
+        <div class="form-group col-md-12">
+            <label for="id_lotsal"> Lote de sal 1</label>
+            {{ form.lotsal |add_class:"form-control" }}
+        </div>
+        <div class="form-group col-md-12">
+            <label for="id_lotsal2"> Lote de sal 2 </label>
+            {{ form.lotsal2 |add_class:"form-control" }}
+        </div>
+        <div class="form-group col-md-12">
+            <label for="id_lotsal3"> Lote de sal 3</label>
+            {{ form.lotsal3 |add_class:"form-control" }}
+        </div>
+    </div>
+
+    <div class="form-group col-6">
+        <h1>Tanques donde se deposito</h1>
+        <div class="form-group col-md-8">
+            <label for="id_lotsal"> Tanque 1</label>
+            {{ form.tanque1 |add_class:"form-control" }}
+        </div>
+        <div class="form-group col-md-8">
+            <label for="id_lotsal2"> Tanque 2 </label>
+            {{ form.tanque2 |add_class:"form-control" }}
+        </div>
+        <div class="form-group col-md-8">
+            <label for="id_lotsal3"> Tanque 3 </label>
+            {{ form.tanque3 |add_class:"form-control" }}
+        </div>
+    </div>
+
+    <div class="form-group col-7">
+        <h1>Cuanto se deposto</h1>
+        <div class="form-group col-md-12">
+            <label for="id_lttanque1"> Lt depositados en tanque 1</label>
+            {{ form.lttanque1 |add_class:"form-control" }}
+        </div>
+        <div class="form-group col-md-12">
+            <label for="id_lttanque2"> Lt depositados en tanque 2 </label>
+            {{ form.lttanque2 |add_class:"form-control" }}
+        </div>
+        <div class="form-group col-md-12">
+            <label for="id_lttanque3"> Lt depositados en tanque 3</label>
+            {{ form.lttanque3 |add_class:"form-control" }}
+        </div>
+    </div>
+
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit">Guardar</button>
+    </div>
+
+</form>
