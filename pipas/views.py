@@ -52,6 +52,8 @@ def pipas(request):
 def add(request,w_pk):
     w = Weight.objects.get(id=w_pk)
     
+    
+    
     if request.method == 'GET':
         formulariop = PipasForm(
             initial={'weight':w}
