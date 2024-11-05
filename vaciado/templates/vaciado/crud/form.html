@@ -2,10 +2,8 @@
 <form class="row g-3" enctype="multipart/form-data" method="POST">
     
     {% csrf_token %}
-
         
-
-
+        
         <div class="col-md-2">
             <label for="validationDefault11" class="form-label">Hora de Comienzo de vaciado</label>
             {% render_field formulariov.hdecomiezov class+="form-control" type="time" %}
