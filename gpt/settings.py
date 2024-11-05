@@ -107,7 +107,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'GaleanaPepper$default',
         'USER': 'GaleanaPepper',
-        'PASSWORD': '350Zmomi',
+        'PASSWORD': '350Zmomi@',
         'HOST': 'GaleanaPepper.mysql.pythonanywhere-services.com',
         'PORT': '3306',
     }
